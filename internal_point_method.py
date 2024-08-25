@@ -4,14 +4,21 @@ import numpy as np
 from utils import Utils
 from steepest_descent_method import SteepestDescentMethod
 
-
 if __name__ == "__main__":
     x, y, z = sym.symbols('x y z')
     # вар 4
-    f = 8 * x ** 2 + 6 * y ** 2 + 3 * z ** 2 + 10 * x * y + 2 * x * z - 3 * y * z - 35 * x - 2 * y - 40 * z
-    fi1 = 2 * x - y + 7 * z - 11
-    fi2 = -x + 3 * y - 9 * z - 4
-    p0 = np.array([0, 0, 0])
+    # f = 8 * x ** 2 + 6 * y ** 2 + 3 * z ** 2 + 10 * x * y + 2 * x * z - 3 * y * z - 35 * x - 2 * y - 40 * z
+    # fi1 = 2 * x - y + 7 * z - 11
+    # fi2 = -x + 3 * y - 9 * z - 4
+    f = 2 * x ** 2 + 5 * y ** 2 + 10 * z ** 2 + 6 * x * z - 9 * y * z - 10 * x - 13 * y + 10 * z
+    fi1 = 2 * x - 2 * y + 4 * z - 50
+    fi2 = 2 * x + 3 * y - 2 * z - 100
+    p0 = np.array([10, 10, 10])
+
+    # f = 20 * x ** 2 + 5 * y ** 2 + 13 * z ** 2 - 10 * x * y - 5 * x * z - 12 * y * z + 25 * x - 20 * y - 30 * z
+    # fi1 = x + 10 * y + 10 * z - 1000
+    # fi2 = 3 * x + 15 * y + 2 * z - 700
+    # p0 = np.array([0, 0, 0])
 
     #
     # f = 4 * x ** 2 + 5 * y ** 2 + 6 * z ** 2 + 7 * x * y + 3 * x * z - 3 * y * z - 30 * x - 2 * y - 20 * z

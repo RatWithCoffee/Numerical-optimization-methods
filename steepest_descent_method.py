@@ -34,19 +34,18 @@ class SteepestDescentMethod:
 
     def calculate_extremum(self, p0):
         p0 = np.array(p0)
-        e1 = e2 = e3 = 1
+        e1 = e2 = 1
         i = 0
-        print(f"{'i':<5} {'t':<10} {'x':<15} {'y':<15} {'z':<15} {'f':<15} {'e1':<15} {'e2':<15} {'e3':<15}")
+        print(f"{'i':<5} {'t':<10} {'x':<15} {'y':<15} {'z':<15} {'f':<15} {'e1':<15} {'e2':<15}")
 
-        while i < 30 and (e1 > 0.01 or e2 > 0.01 or e3 > 0.01):
+        while e1 > 0.01 or e2 > 0.01:
             t = self.compute_t(p0)
             p1 = self.compute_next_point(t, p0)
-            e1 = Utils.calculate_error1(p0, p1)
-            e2 = Utils.calculate_error2(self.f, p0, p1).evalf()
-            e3 = Utils.calculate_error3(self.f, p1).evalf()
+            e1 = Utils.calculate_error2(self.f, p0, p1).evalf()
+            e2 = Utils.calculate_error3(self.f, p1).evalf()
 
             print(f"{i:<5} {t:<10.3f} {p1[0]:<15.3f} {p1[1]:<15.3f} {p1[2]:<15.3f}"
-                  f" {Utils.func_value(self.f, p1):<15.3f} {e1:<15.3f} {e2:<15.3f} {e3:<15.3f}")
+                  f" {Utils.func_value(self.f, p1):<15.3f} {e1:<15.3f} {e2:<15.3f}")
 
             p0 = p1
             i += 1
